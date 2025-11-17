@@ -1,0 +1,322 @@
+{
+  "Jail": {
+    "Crab": [
+      {
+        "pos": [ 95, 21 ],
+        "startPosX": 95,
+        "moveNum": 64,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      },
+      {
+        "pos": [ 170, 21 ],
+        "startPosX": 170,
+        "moveNum": 64,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      },
+      {
+        "pos": [ 277, 21 ],
+        "startPosX": 277,
+        "moveNum": 92,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      }
+    ],
+    "BigFish": [
+      {
+        "pos": [ 95, 11 ],
+        "startPosX": 95,
+        "moveNum": 62,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      },
+      {
+        "pos": [ 170, 11 ],
+        "startPosX": 170,
+        "moveNum": 62,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      },
+      {
+        "pos": [ 277, 11 ],
+        "startPosX": 277,
+        "moveNum": 74,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      },
+      {
+        "pos": [ 490, 12 ],
+        "startPosX": 490,
+        "moveNum": 57,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      },
+      {
+        "pos": [ 547, 21 ],
+        "startPosX": 490,
+        "moveNum": 57,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      }
+    ],
+    "SmallFish": [
+      {
+        "pos": [ 470, 18 ],
+        "attack": "SMALLFISH_ATTACK",
+        "isRush": false
+      }
+    ]
+  },
+
+  "DragonPalace": {
+    "Crab": [
+      {
+        "pos": [ 72, 21 ],
+        "startPosX": 72,
+        "moveNum": 60,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      },
+      {
+        "pos": [ 170, 21 ],
+        "startPosX": 170,
+        "moveNum": 61,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      },
+      {
+        "pos": [ 246, 21 ],
+        "startPosX": 246,
+        "moveNum": 86,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      },
+      {
+        "pos": [ 440, 21 ],
+        "startPosX": 440,
+        "moveNum": 125,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      }
+    ],
+    "BigFish": [
+      {
+        "pos": [ 71, 14 ],
+        "startPosX": 71,
+        "moveNum": 59,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      },
+      {
+        "pos": [ 169, 14 ],
+        "startPosX": 169,
+        "moveNum": 36,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      },
+      {
+        "pos": [ 245, 11 ],
+        "startPosX": 245,
+        "moveNum": 84,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      },
+      {
+        "pos": [ 514, 11 ],
+        "startPosX": 514,
+        "moveNum": 52,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      }
+    ],
+    "SmallFish": [
+      {
+        "pos": [ 375, 23 ],
+        "attack": "SMALLFISH_ATTACK",
+        "isRush": false
+      },
+      {
+        "pos": [ 445, 7 ],
+        "attack": "SMALLFISH_ATTACK",
+        "isRush": false
+      }
+    ]
+  },
+
+  "Sea1": {
+    "Crab": [
+      {
+        "pos": [ 80, 13 ],
+        "startPosX": 83,
+        "moveNum": 90,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      },
+      {
+        "pos": [ 187, 21 ],
+        "startPosX": 187,
+        "moveNum": 75,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      },
+      {
+        "pos": [ 373, 21 ],
+        "startPosX": 373,
+        "moveNum": 73,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      },
+      {
+        "pos": [ 574, 17 ],
+        "startPosX": 574,
+        "moveNum": 56,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      },
+      {
+        "pos": [ 580, 7 ],
+        "startPosX": 580,
+        "moveNum": 44,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      }
+    ],
+    "BigFish": [
+      {
+        "pos": [ 80, 21 ],
+        "startPosX": 80,
+        "moveNum": 94,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      },
+      {
+        "pos": [ 187, 12 ],
+        "startPosX": 187,
+        "moveNum": 72,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      },
+      {
+        "pos": [ 290, 21 ],
+        "startPosX": 290,
+        "moveNum": 56,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      },
+      {
+        "pos": [ 373, 13 ],
+        "startPosX": 373,
+        "moveNum": 72,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      },
+      {
+        "pos": [ 458, 21 ],
+        "startPosX": 458,
+        "moveNum": 119,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      }
+    ],
+    "SmallFish": [
+      {
+        "pos": [ 310, 14 ],
+        "attack": "SMALLFISH_ATTACK",
+        "isRush": false
+      },
+      {
+        "pos": [ 620, 23 ],
+        "attack": "SMALLFISH_ATTACK",
+        "isRush": false
+      }
+    ]
+  },
+
+  "Sea2": {
+    "Crab": [
+      {
+        "pos": [ 76, 10 ],
+        "startPosX": 76,
+        "moveNum": 76,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      },
+      {
+        "pos": [ 150, 21 ],
+        "startPosX": 150,
+        "moveNum": 41,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      },
+      {
+        "pos": [ 404, 21 ],
+        "startPosX": 404,
+        "moveNum": 50,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      },
+      {
+        "pos": [ 546, 21 ],
+        "startPosX": 491,
+        "moveNum": 55,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      },
+      {
+        "pos": [ 491, 16 ],
+        "startPosX": 491,
+        "moveNum": 55,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      },
+      {
+        "pos": [ 610, 21 ],
+        "startPosX": 610,
+        "moveNum": 62,
+        "dir": "RIGHT",
+        "attackStatus": "NONE"
+      }
+    ],
+    "BigFish": [
+      {
+        "pos": [ 231, 21 ],
+        "startPosX": 231,
+        "moveNum": 86,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      },
+      {
+        "pos": [ 313, 16 ],
+        "startPosX": 313,
+        "moveNum": 79,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      },
+      {
+        "pos": [ 401, 16 ],
+        "startPosX": 401,
+        "moveNum": 51,
+        "dir": "RIGHT",
+        "attack": "BIGFISH_ATTACK"
+      }
+    ],
+    "SmallFish": [
+      {
+        "pos": [ 236, 12 ],
+        "attack": "SMALLFISH_ATTACK",
+        "isRush": false
+      },
+      {
+        "pos": [ 412, 13 ],
+        "attack": "SMALLFISH_ATTACK",
+        "isRush": false
+      },
+      {
+        "pos": [ 570, 15 ],
+        "attack": "SMALLFISH_ATTACK",
+        "isRush": false
+      }
+    ]
+  }
+}
