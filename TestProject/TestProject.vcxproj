@@ -131,12 +131,14 @@
     <ClCompile Include="Crab.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="GameMain.cpp" />
+    <ClCompile Include="MonsterManager.cpp" />
     <ClCompile Include="SmallFish.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BigFish.h" />
     <ClInclude Include="Crab.h" />
     <ClInclude Include="Monster.h" />
+    <ClInclude Include="MonsterManager.h" />
     <ClInclude Include="SmallFish.h" />
     <ClInclude Include="tempMonsterInclude.h" />
   </ItemGroup>
