@@ -1,6 +1,6 @@
 #pragma once
 #include "Monster.h"
-#include "tempMonsterInclude.h"
+#include "tempInclude.h"
 
 class SmallFish : public Monster
 {

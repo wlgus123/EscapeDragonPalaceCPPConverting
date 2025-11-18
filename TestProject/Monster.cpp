@@ -1,5 +1,5 @@
 #include "Monster.h"
-#include "tempMonsterInclude.h"
+#include "tempInclude.h"
 
 // »ý¼ºÀÚ
 Monster::Monster()

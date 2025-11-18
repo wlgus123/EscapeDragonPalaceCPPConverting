@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="BigFish.cpp" />
     <ClCompile Include="Crab.cpp" />
+    <ClCompile Include="MapManager.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="MonsterManager.cpp" />
@@ -137,10 +138,11 @@
   <ItemGroup>
     <ClInclude Include="BigFish.h" />
     <ClInclude Include="Crab.h" />
+    <ClInclude Include="MapManager.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="MonsterManager.h" />
     <ClInclude Include="SmallFish.h" />
-    <ClInclude Include="tempMonsterInclude.h" />
+    <ClInclude Include="tempInclude.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MonsterData.json" />

@@ -36,6 +36,9 @@
     <ClCompile Include="MonsterManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="MapManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Crab.h">
@@ -50,10 +53,13 @@
     <ClInclude Include="SmallFish.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="tempMonsterInclude.h">
+    <ClInclude Include="tempInclude.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="MonsterManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MapManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

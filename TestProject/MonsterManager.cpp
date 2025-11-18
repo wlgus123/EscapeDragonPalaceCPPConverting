@@ -1,14 +1,22 @@
+#include <string>
+#include <fstream>
+#include <json/json.h>
 #include "MonsterManager.h"
+
+// TODO: cout 昏力
+#include "tempInclude.h"
 
 MonsterManager* MonsterManager::m_Instance = nullptr;
 
 // 积己磊/家戈磊
 MonsterManager::MonsterManager()
 {
+    cout << "MonsterManager 积己磊" << endl;
 }
 
 MonsterManager::~MonsterManager()
 {
+    cout << "MonsterManager 家戈磊" << endl;
 }
 
 // 教臂沛 荤侩
@@ -16,7 +24,7 @@ MonsterManager* MonsterManager::GetInstance()
 {
     if (!MonsterManager::m_Instance)
     {
-        MonsterManager::m_Instance = MonsterManager::GetInstance();
+        MonsterManager::m_Instance = new MonsterManager();
     }
 
     return MonsterManager::m_Instance;
