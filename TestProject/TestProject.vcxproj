@@ -149,6 +149,11 @@
   <ItemGroup>
     <Text Include="CommonMonsterUI.txt" />
     <Text Include="BossMonsterUI.txt" />
+    <Text Include="map_dragonPalace.txt" />
+    <Text Include="map_ground.txt" />
+    <Text Include="map_jail.txt" />
+    <Text Include="map_sea1.txt" />
+    <Text Include="map_sea2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

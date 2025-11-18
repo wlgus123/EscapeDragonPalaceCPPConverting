@@ -70,5 +70,20 @@
     <Text Include="BossMonsterUI.txt">
       <Filter>Data</Filter>
     </Text>
+    <Text Include="map_dragonPalace.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="map_ground.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="map_jail.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="map_sea1.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="map_sea2.txt">
+      <Filter>Data</Filter>
+    </Text>
   </ItemGroup>
 </Project>
