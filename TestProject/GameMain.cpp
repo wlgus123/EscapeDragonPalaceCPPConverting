@@ -23,8 +23,11 @@ int main()
 	ifstream fin("MonsterData.json");
 	Json::Value root;
 	fin >> root;
-	cout << "======================" << mapManager->GetMapStatusToString() << "======================" << endl;
-	cout << root[mapManager->GetMapStatusToString()] << endl;
+	while(mapManager->SetMapStatusNext())
+	{
+		cout << "===========================" << mapManager->GetMapStatusToString() << "===========================" << endl;
+		cout << root[mapManager->GetMapStatusToString()] << endl;
+	}
 	fin.close();
 
 	for (Monster* m : mon)

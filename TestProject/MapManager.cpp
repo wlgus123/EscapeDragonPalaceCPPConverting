@@ -45,11 +45,17 @@ E_MapStatus MapManager::GetMapStatus()
     return this->m_mapStatus;
 }
 
-void MapManager::SetMapStatusNext()
+bool MapManager::SetMapStatusNext()
 {
     // 보스맵이 아닌 경우에만 다음 맵으로 이동
+    // 다음 맵 이동이 성공했을 경우 true 반환
     if((int)this->m_mapStatus < (int)E_MapStatus::GROUND)
+    {
         this->m_mapStatus = (E_MapStatus)((int)this->m_mapStatus + 1);
+        return true;
+    }
+    
+    return false;
 }
 
 void MapManager::ResetMapStatus()

@@ -44,7 +44,7 @@ public:
 	int GetFocusX();			// x좌표 이동값 불러오기
 	void SetFocusX(int p_x);	// x좌표 이동값 변경하기
 	E_MapStatus GetMapStatus();	// 현재 맵 정보 불러오기
-	void SetMapStatusNext();	// 다음 맵으로 이동
+	bool SetMapStatusNext();	// 다음 맵으로 이동
 	void ResetMapStatus();		// 맵 초기화 (플레이어 사망 시)
 	vector<string> GetUI();		// 맵 UI 불러오기
 };
