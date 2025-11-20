@@ -1,3 +1,4 @@
+#include <fstream>
 #include "MapManager.h"
 
 // TODO: cout 삭제
@@ -64,22 +65,58 @@ void MapManager::ResetMapStatus()
     this->m_mapStatus = E_MapStatus::JAIL;
 }
 
+// UI 저장하고 불러오기
 vector<string> MapManager::GetUI()
 {
+    string fileName = "map_" + this->GetMapStatusToString() + ".txt";   // 파일 이름 
+    string tempFileStr = "";
+    ifstream fin(fileName);     // 파일 열기
+
+    if (fin.is_open())
+    {
+        char c;
+        while (true)
+        {
+            fin.get(c);
+            
+            if (fin.fail())
+            {
+                break;
+            }
+            // 문자열이 다음 칸으로 내려갔을 경우
+            if (c == '\n')
+            {
+                this->m_UI.push_back(tempFileStr);
+                cout << tempFileStr << endl;
+                tempFileStr = "";
+            }
+            tempFileStr += c;
+        }
+    }
+    fin.close();
     return vector<string>();
 }
 
 // 일반 함수
+// 초기화
 void MapManager::Init()
 {
     this->m_mapStatus = E_MapStatus::JAIL;
 }
 
+// 그리기
+void MapManager::Draw()
+{
+    
+}
+
+// 업데이트
 void MapManager::Update()
 {
 
 }
 
+// 할당 해제
 void MapManager::Destroy()
 {
 

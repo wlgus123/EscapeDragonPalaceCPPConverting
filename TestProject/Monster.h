@@ -1,4 +1,6 @@
 #pragma once
+#include "IState.h"
+
 // 위치 클래스
 class Pos
 {
@@ -19,16 +21,13 @@ public:
 class IMonster
 {
 public:
-	virtual void Init() = 0;				// 초기화
-	virtual void Reset() = 0;				// 리셋
-	virtual void Update() = 0;				// 업데이트
-	virtual void Draw() = 0;				// 그리기
+	virtual void Reset() = 0;				// 몬스터 리셋
 	virtual void MonsterHitPlayer() = 0;	// 몬스터 피격 처리 함수
 	virtual void PlayerHitMonster() = 0;	// 플레이어 -> 몬스터 피격 처리 함수
 };
 
 // 몬스터 클래스
-class Monster : public IMonster
+class Monster : public IMonster, public IState
 {
 protected:
 	Pos pos;					// 몬스터 위치
@@ -43,12 +42,14 @@ public:
 	Monster();
 	virtual ~Monster();
 
-	virtual void Init() override = 0;				// 초기화
 	virtual void Reset() override = 0;				// 리셋
-	virtual void Update() override = 0;				// 업데이트
-	virtual void Draw() override = 0;				// 그리기
 	virtual void MonsterHitPlayer() override = 0;	// 몬스터 피격 처리 함수
 	virtual void PlayerHitMonster() override = 0;	// 플레이어 -> 몬스터 피격 처리 함수
+
+	virtual void Init() override = 0;				// 초기화
+	virtual void Update() override = 0;				// 업데이트
+	virtual void Draw() override = 0;				// 그리기
+	virtual void Destroy() override = 0;			// 할당 해제
 };
 
 	 

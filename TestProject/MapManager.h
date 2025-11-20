@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 
+#include "IState.h"
+
 using namespace std;
 
 // 맵 enum
@@ -15,7 +17,7 @@ enum E_MapStatus
 	MAX,
 };
 
-class MapManager
+class MapManager : public IState
 {
 private:
 	static MapManager* m_Instance;
@@ -33,19 +35,20 @@ public:
 	static MapManager* GetInstance();
 
 	// 기본 메소드
-	void Init();		// 초기화
-	void Update();		// 업데이트
-	void Destroy();		// 할당 해제
+	virtual void Init() override;		// 초기화
+	virtual void Draw() override;		// 그리기
+	virtual void Update() override;		// 업데이트
+	virtual void Destroy() override;	// 할당 해제
 
 	// 현재 맵 이름 문자열로 반환
 	string GetMapStatusToString();
 
 	// 캡슐화
-	int GetFocusX();			// x좌표 이동값 불러오기
-	void SetFocusX(int p_x);	// x좌표 이동값 변경하기
-	E_MapStatus GetMapStatus();	// 현재 맵 정보 불러오기
-	bool SetMapStatusNext();	// 다음 맵으로 이동
-	void ResetMapStatus();		// 맵 초기화 (플레이어 사망 시)
-	vector<string> GetUI();		// 맵 UI 불러오기
+	int GetFocusX();						// x좌표 이동값 불러오기
+	void SetFocusX(int p_x);				// x좌표 이동값 변경하기
+	E_MapStatus GetMapStatus();				// 현재 맵 정보 불러오기
+	bool SetMapStatusNext();				// 다음 맵으로 이동
+	void ResetMapStatus();					// 맵 초기화 (플레이어 사망 시)
+	vector<string> GetUI();					// 맵 UI 불러오기
 };
 

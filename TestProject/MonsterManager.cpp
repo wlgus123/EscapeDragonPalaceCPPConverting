@@ -40,6 +40,12 @@ void MonsterManager::Update()
 {
 }
 
+// 그리기
+void MonsterManager::Draw()
+{
+
+}
+
 // 할당 해제
 void MonsterManager::Destroy()
 {

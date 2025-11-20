@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="BigFish.cpp" />
     <ClCompile Include="Crab.cpp" />
+    <ClCompile Include="IState.cpp" />
     <ClCompile Include="MapManager.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="GameMain.cpp" />
@@ -138,6 +139,7 @@
   <ItemGroup>
     <ClInclude Include="BigFish.h" />
     <ClInclude Include="Crab.h" />
+    <ClInclude Include="IState.h" />
     <ClInclude Include="MapManager.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="MonsterManager.h" />
@@ -151,11 +153,11 @@
   <ItemGroup>
     <Text Include="CommonMonsterUI.txt" />
     <Text Include="BossMonsterUI.txt" />
-    <Text Include="map_dragonPalace.txt" />
-    <Text Include="map_ground.txt" />
-    <Text Include="map_jail.txt" />
-    <Text Include="map_sea1.txt" />
-    <Text Include="map_sea2.txt" />
+    <Text Include="map_DragonPalace.txt" />
+    <Text Include="map_Ground.txt" />
+    <Text Include="map_Jail.txt" />
+    <Text Include="map_Sea1.txt" />
+    <Text Include="map_Sea2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

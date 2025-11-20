@@ -39,6 +39,9 @@
     <ClCompile Include="MapManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="IState.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Crab.h">
@@ -62,6 +65,9 @@
     <ClInclude Include="MapManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="IState.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="MonsterData.json">
@@ -76,19 +82,19 @@
     <Text Include="BossMonsterUI.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="map_dragonPalace.txt">
+    <Text Include="map_DragonPalace.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="map_ground.txt">
+    <Text Include="map_Ground.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="map_jail.txt">
+    <Text Include="map_Jail.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="map_sea1.txt">
+    <Text Include="map_Sea1.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="map_sea2.txt">
+    <Text Include="map_Sea2.txt">
       <Filter>Data</Filter>
     </Text>
   </ItemGroup>

@@ -1,10 +1,11 @@
 #pragma once
 #include <string>
 #include <vector>
+#include "IState.h"
 
 using namespace std;
 
-class MonsterManager
+class MonsterManager : public IState
 {
 private:
 	static MonsterManager* m_Instance;
@@ -18,8 +19,9 @@ public:
 	static MonsterManager* GetInstance();
 
 	// 기본 메소드
-	void Init();		// 초기화
-	void Update();		// 업데이트
-	void Destroy();		// 할당 해제
+	virtual void Init() override;		// 초기화
+	virtual void Draw() override;		// 그리기
+	virtual void Update() override;		// 업데이트
+	virtual void Destroy() override;	// 할당 해제
 };
 
