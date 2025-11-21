@@ -130,6 +130,7 @@
     <ClCompile Include="BigFish.cpp" />
     <ClCompile Include="Crab.cpp" />
     <ClCompile Include="IState.cpp" />
+    <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="MapManager.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="GameMain.cpp" />
@@ -139,7 +140,9 @@
   <ItemGroup>
     <ClInclude Include="BigFish.h" />
     <ClInclude Include="Crab.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="IState.h" />
+    <ClInclude Include="KeyManager.h" />
     <ClInclude Include="MapManager.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="MonsterManager.h" />

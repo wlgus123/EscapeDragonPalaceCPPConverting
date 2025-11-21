@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <fstream>
-#include <json/json.h>
+ï»¿#include "Input.h"
 #include "Monster.h"
 #include "Crab.h"
 #include "BigFish.h"
@@ -18,8 +14,8 @@ int main()
 	MonsterManager* monsterManager = MonsterManager::GetInstance();
 	MapManager* mapManager = MapManager::GetInstance();
 
-	// TODO: ¸Ê¿¡ µû¸¥ ¸ó½ºÅÍ Á¤º¸ °¡Á®¿À±â
-	// ¸ó½ºÅÍ µ¥ÀÌÅÍ JSON ÆÄÀÏ ºÒ·¯¿À±â
+	// TODO: ë§µì— ë”°ë¥¸ ëª¬ìŠ¤í„° ì •ë³´ ê°€ì ¸ì˜¤ê¸°
+	// ëª¬ìŠ¤í„° ë°ì´í„° JSON íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°
 	ifstream fin("MonsterData.json");
 	Json::Value root;
 	fin >> root;

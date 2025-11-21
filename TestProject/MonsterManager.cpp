@@ -1,25 +1,25 @@
-#include <string>
+ï»¿#include <string>
 #include <fstream>
 #include <json/json.h>
 #include "MonsterManager.h"
 
-// TODO: cout »èÁ¦
+// TODO: cout ì‚­ì œ
 #include "tempInclude.h"
 
 MonsterManager* MonsterManager::m_Instance = nullptr;
 
-// »ı¼ºÀÚ/¼Ò¸êÀÚ
+// ìƒì„±ì/ì†Œë©¸ì
 MonsterManager::MonsterManager()
 {
-    cout << "MonsterManager »ı¼ºÀÚ" << endl;
+    cout << "MonsterManager ìƒì„±ì" << endl;
 }
 
 MonsterManager::~MonsterManager()
 {
-    cout << "MonsterManager ¼Ò¸êÀÚ" << endl;
+    cout << "MonsterManager ì†Œë©¸ì" << endl;
 }
 
-// ½Ì±ÛÅæ »ç¿ë
+// ì‹±ê¸€í†¤ ì‚¬ìš©
 MonsterManager* MonsterManager::GetInstance()
 {
     if (!MonsterManager::m_Instance)
@@ -30,23 +30,23 @@ MonsterManager* MonsterManager::GetInstance()
     return MonsterManager::m_Instance;
 }
 
-// ÃÊ±âÈ­
+// ì´ˆê¸°í™”
 void MonsterManager::Init()
 {
 }
 
-// ¾÷µ¥ÀÌÆ®
+// ì—…ë°ì´íŠ¸
 void MonsterManager::Update()
 {
 }
 
-// ±×¸®±â
+// ê·¸ë¦¬ê¸°
 void MonsterManager::Draw()
 {
 
 }
 
-// ÇÒ´ç ÇØÁ¦
+// í• ë‹¹ í•´ì œ
 void MonsterManager::Destroy()
 {
 }

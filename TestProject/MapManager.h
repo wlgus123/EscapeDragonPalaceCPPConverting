@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <string>
 #include <vector>
 
@@ -6,7 +6,7 @@
 
 using namespace std;
 
-// ¸Ê enum
+// ë§µ enum
 enum E_MapStatus
 {
 	JAIL = 0,
@@ -22,33 +22,33 @@ class MapManager : public IState
 private:
 	static MapManager* m_Instance;
 
-	vector<string> m_UI;		// ¸Ê UI
-	E_MapStatus m_mapStatus;	// ÇöÀç ¸Ê Á¤º¸
-	int m_focusX;				// ÇÃ·¹ÀÌ¾î¸¦ ±âÁØÀ¸·Î ÇÏ´Â xÁÂÇ¥ ÀÌµ¿°ª
+	vector<string> m_UI;		// ë§µ UI
+	E_MapStatus m_mapStatus;	// í˜„ì¬ ë§µ ì •ë³´
+	int m_focusX;				// í”Œë ˆì´ì–´ë¥¼ ê¸°ì¤€ìœ¼ë¡œ í•˜ëŠ” xì¢Œí‘œ ì´ë™ê°’
 
 public:
-	// »ı¼ºÀÚ/¼Ò¸êÀÚ
+	// ìƒì„±ì/ì†Œë©¸ì
 	MapManager();
 	virtual ~MapManager();
 
-	// ½Ì±ÛÅæ »ç¿ë (ÀÎ½ºÅÏ½º ºÒ·¯¿À±â)
+	// ì‹±ê¸€í†¤ ì‚¬ìš© (ì¸ìŠ¤í„´ìŠ¤ ë¶ˆëŸ¬ì˜¤ê¸°)
 	static MapManager* GetInstance();
 
-	// ±âº» ¸Ş¼Òµå
-	virtual void Init() override;		// ÃÊ±âÈ­
-	virtual void Draw() override;		// ±×¸®±â
-	virtual void Update() override;		// ¾÷µ¥ÀÌÆ®
-	virtual void Destroy() override;	// ÇÒ´ç ÇØÁ¦
+	// ê¸°ë³¸ ë©”ì†Œë“œ
+	virtual void Init() override;		// ì´ˆê¸°í™”
+	virtual void Draw() override;		// ê·¸ë¦¬ê¸°
+	virtual void Update() override;		// ì—…ë°ì´íŠ¸
+	virtual void Destroy() override;	// í• ë‹¹ í•´ì œ
 
-	// ÇöÀç ¸Ê ÀÌ¸§ ¹®ÀÚ¿­·Î ¹İÈ¯
+	// í˜„ì¬ ë§µ ì´ë¦„ ë¬¸ìì—´ë¡œ ë°˜í™˜
 	string GetMapStatusToString();
 
-	// Ä¸½¶È­
-	int GetFocusX();						// xÁÂÇ¥ ÀÌµ¿°ª ºÒ·¯¿À±â
-	void SetFocusX(int p_x);				// xÁÂÇ¥ ÀÌµ¿°ª º¯°æÇÏ±â
-	E_MapStatus GetMapStatus();				// ÇöÀç ¸Ê Á¤º¸ ºÒ·¯¿À±â
-	bool SetMapStatusNext();				// ´ÙÀ½ ¸ÊÀ¸·Î ÀÌµ¿
-	void ResetMapStatus();					// ¸Ê ÃÊ±âÈ­ (ÇÃ·¹ÀÌ¾î »ç¸Á ½Ã)
-	vector<string> GetUI();					// ¸Ê UI ºÒ·¯¿À±â
+	// ìº¡ìŠí™”
+	int GetFocusX();						// xì¢Œí‘œ ì´ë™ê°’ ë¶ˆëŸ¬ì˜¤ê¸°
+	void SetFocusX(int p_x);				// xì¢Œí‘œ ì´ë™ê°’ ë³€ê²½í•˜ê¸°
+	E_MapStatus GetMapStatus();				// í˜„ì¬ ë§µ ì •ë³´ ë¶ˆëŸ¬ì˜¤ê¸°
+	bool SetMapStatusNext();				// ë‹¤ìŒ ë§µìœ¼ë¡œ ì´ë™
+	void ResetMapStatus();					// ë§µ ì´ˆê¸°í™” (í”Œë ˆì´ì–´ ì‚¬ë§ ì‹œ)
+	vector<string> GetUI();					// ë§µ UI ë¶ˆëŸ¬ì˜¤ê¸°
 };
 

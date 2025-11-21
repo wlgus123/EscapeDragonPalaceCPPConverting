@@ -1,25 +1,24 @@
-#include <fstream>
-#include "MapManager.h"
+ï»¿#include "MapManager.h"
 
-// TODO: cout »èÁ¦
+// TODO: cout ì‚­ì œ
 #include "tempInclude.h"
 
 MapManager* MapManager::m_Instance = nullptr;
 
-// »ı¼ºÀÚ/¼Ò¸êÀÚ
+// ìƒì„±ì/ì†Œë©¸ì
 MapManager::MapManager()
 {
     Init();
 
-    cout << "MapManager »ı¼ºÀÚ" << endl;
+    cout << "MapManager ìƒì„±ì" << endl;
 }
 
 MapManager::~MapManager()
 {
-    cout << "MapManager ¼Ò¸êÀÚ" << endl;
+    cout << "MapManager ì†Œë©¸ì" << endl;
 }
 
-// ½Ì±ÛÅæ
+// ì‹±ê¸€í†¤
 MapManager* MapManager::GetInstance()
 {
     if (!MapManager::m_Instance)
@@ -30,7 +29,7 @@ MapManager* MapManager::GetInstance()
     return MapManager::m_Instance;
 }
 
-// Ä¸½¶È­ ÇÔ¼ö
+// ìº¡ìŠí™” í•¨ìˆ˜
 int MapManager::GetFocusX()
 {
     return this->m_focusX;
@@ -48,8 +47,8 @@ E_MapStatus MapManager::GetMapStatus()
 
 bool MapManager::SetMapStatusNext()
 {
-    // º¸½º¸ÊÀÌ ¾Æ´Ñ °æ¿ì¿¡¸¸ ´ÙÀ½ ¸ÊÀ¸·Î ÀÌµ¿
-    // ´ÙÀ½ ¸Ê ÀÌµ¿ÀÌ ¼º°øÇßÀ» °æ¿ì true ¹İÈ¯
+    // ë³´ìŠ¤ë§µì´ ì•„ë‹Œ ê²½ìš°ì—ë§Œ ë‹¤ìŒ ë§µìœ¼ë¡œ ì´ë™
+    // ë‹¤ìŒ ë§µ ì´ë™ì´ ì„±ê³µí–ˆì„ ê²½ìš° true ë°˜í™˜
     if((int)this->m_mapStatus < (int)E_MapStatus::GROUND)
     {
         this->m_mapStatus = (E_MapStatus)((int)this->m_mapStatus + 1);
@@ -61,16 +60,16 @@ bool MapManager::SetMapStatusNext()
 
 void MapManager::ResetMapStatus()
 {
-    // Ã³À½ ¸ÊÀÎ °¨¿Á ¸ÊÀ¸·Î ÀÌµ¿
+    // ì²˜ìŒ ë§µì¸ ê°ì˜¥ ë§µìœ¼ë¡œ ì´ë™
     this->m_mapStatus = E_MapStatus::JAIL;
 }
 
-// UI ÀúÀåÇÏ°í ºÒ·¯¿À±â
+// UI ì €ì¥í•˜ê³  ë¶ˆëŸ¬ì˜¤ê¸°
 vector<string> MapManager::GetUI()
 {
-    string fileName = "map_" + this->GetMapStatusToString() + ".txt";   // ÆÄÀÏ ÀÌ¸§ 
+    string fileName = "map_" + this->GetMapStatusToString() + ".txt";   // íŒŒì¼ ì´ë¦„ 
     string tempFileStr = "";
-    ifstream fin(fileName);     // ÆÄÀÏ ¿­±â
+    ifstream fin(fileName);     // íŒŒì¼ ì—´ê¸°
 
     if (fin.is_open())
     {
@@ -83,7 +82,7 @@ vector<string> MapManager::GetUI()
             {
                 break;
             }
-            // ¹®ÀÚ¿­ÀÌ ´ÙÀ½ Ä­À¸·Î ³»·Á°¬À» °æ¿ì
+            // ë¬¸ìì—´ì´ ë‹¤ìŒ ì¹¸ìœ¼ë¡œ ë‚´ë ¤ê°”ì„ ê²½ìš°
             if (c == '\n')
             {
                 this->m_UI.push_back(tempFileStr);
@@ -97,32 +96,36 @@ vector<string> MapManager::GetUI()
     return vector<string>();
 }
 
-// ÀÏ¹İ ÇÔ¼ö
-// ÃÊ±âÈ­
+// ì¼ë°˜ í•¨ìˆ˜
+// ì´ˆê¸°í™”
 void MapManager::Init()
 {
     this->m_mapStatus = E_MapStatus::JAIL;
 }
 
-// ±×¸®±â
+// ê·¸ë¦¬ê¸°
 void MapManager::Draw()
 {
     
 }
 
-// ¾÷µ¥ÀÌÆ®
+// ì—…ë°ì´íŠ¸
 void MapManager::Update()
 {
+    // TODO: ì„ì‹œ ì½”ë“œ
+    // A or <-, D or ->: ì¢Œ, ìš° ë§µ ì´ë™
+    // N: ë‹¤ìŒ ìŠ¤í…Œì´ì§€
+    // P: ì´ì „ ìŠ¤í…Œì´ì§€
 
 }
 
-// ÇÒ´ç ÇØÁ¦
+// í• ë‹¹ í•´ì œ
 void MapManager::Destroy()
 {
 
 }
 
-// ÇöÀç ¸Ê ÀÌ¸§ ¹®ÀÚ¿­·Î ¹İÈ¯
+// í˜„ì¬ ë§µ ì´ë¦„ ë¬¸ìì—´ë¡œ ë°˜í™˜
 string MapManager::GetMapStatusToString()
 {
     switch (this->m_mapStatus)

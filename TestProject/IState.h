@@ -1,10 +1,10 @@
-#pragma once
+ï»¿#pragma once
 class IState
 {
 public:
-	virtual void Init() = 0;		// ÃÊ±âÈ­
-	virtual void Draw() = 0;		// ±×¸®±â
-	virtual void Update() = 0;		// ¾÷µ¥ÀÌÆ®
-	virtual void Destroy() = 0;		// ÇÒ´ç ÇØÁ¦
+	virtual void Init() = 0;		// ì´ˆê¸°í™”
+	virtual void Draw() = 0;		// ê·¸ë¦¬ê¸°
+	virtual void Update() = 0;		// ì—…ë°ì´íŠ¸
+	virtual void Destroy() = 0;		// í• ë‹¹ í•´ì œ
 };
 
