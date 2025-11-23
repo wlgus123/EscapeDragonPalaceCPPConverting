@@ -129,7 +129,6 @@
   <ItemGroup>
     <ClCompile Include="BigFish.cpp" />
     <ClCompile Include="Crab.cpp" />
-    <ClCompile Include="Flatform_Sea1.txt" />
     <ClCompile Include="IState.cpp" />
     <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="MapManager.cpp" />
@@ -150,7 +149,6 @@
     <ClInclude Include="MonsterManager.h" />
     <ClInclude Include="mtg.h" />
     <ClInclude Include="SmallFish.h" />
-    <ClInclude Include="tempInclude.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MonsterData.json" />
@@ -162,6 +160,7 @@
     <Text Include="Flatform_DragonPalace.txt" />
     <Text Include="Flatform_Ground.txt" />
     <Text Include="Flatform_Jail.txt" />
+    <Text Include="Flatform_Sea1.txt" />
     <Text Include="Flatform_Sea2.txt" />
     <Text Include="MapFrame.txt" />
     <Text Include="Map_DragonPalace.txt" />

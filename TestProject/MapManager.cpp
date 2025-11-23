@@ -4,6 +4,7 @@
 
 MapManager* MapManager::m_Instance = nullptr;
 KeyManager* g_KeyManager = KeyManager::GetInstance();   // 키 매니저 불러오기
+vector<string> g_Frame; // 맵 틀
 
 // 생성자/소멸자
 MapManager::MapManager()
@@ -66,13 +67,16 @@ void MapManager::ResetMapStatus()
 // 맵 틀 저장하기
 void MapManager::InitFrame()
 {
+    g_Frame = this->GetUI("MapFrame.txt");
 }
 
 // 맵 UI 업데이트
 void MapManager::UpdateUI()
 {
-    string fileName = "Map_" + this->GetMapStatusToString() + ".txt";   // 현재 맵에 따라 맵 파일 불러오기
-    this->m_UI = this->GetUI(fileName);
+    string mapName = "Map_" + this->GetMapStatusToString() + ".txt";   // 현재 맵에 따라 맵 파일 불러오기
+    string flatformName = "Flatform_" + this->GetMapStatusToString() + ".txt";  // 현재 맵에 따라 발판 파일 불러오기
+    this->m_BG = this->GetUI(mapName);
+    this->m_Flatform = this->GetUI(flatformName);
 }
 
 // 맵 UI 불러오기
@@ -124,12 +128,12 @@ void MapManager::UpdateX()
         break;
 
     case 'D': case 'd':
-        if (this->m_focusX <= this->m_UI[0].size() - MAP_WIDTH)
+        if (this->m_focusX <= this->m_BG[0].size() - MAP_WIDTH)
             this->m_focusX += this->m_speed;
         
         // 맵 끝에 정확하게 닿도록 설정
-        if (this->m_focusX + MAP_WIDTH + this->m_speed >= this->m_UI[0].size())
-            this->m_focusX = this->m_UI[0].size() - MAP_WIDTH;
+        if (this->m_focusX + MAP_WIDTH + this->m_speed >= this->m_BG[0].size())
+            this->m_focusX = this->m_BG[0].size() - MAP_WIDTH;
         break;
 
     case 'N': case 'n':
@@ -145,30 +149,45 @@ void MapManager::UpdateX()
 // 맵 틀 그리기
 void MapManager::DrawFrame()
 {
-    vector<string> frame = this->GetUI("MapFrame.txt");
-
     for (int y = 0; y < MAP_HEIGHT; y++)
     {
         for (int x = 0; x < MAP_WIDTH; x++)
         {
             // 공백이 아닐 경우만 그리기
-            if (frame[y][x] != ' ')
+            if (g_Frame[y][x] != ' ')
             {
-                char tempStr[2] = { frame[y][x], 0 };
+                char tempStr[2] = { g_Frame[y][x], 0 };
                 _DrawText(x, y, tempStr);
             }
         }
     }
 }
 
-void MapManager::DrawUI()
+// 배경 그리기
+void MapManager::DrawBG()
 {
     for (int y = 0; y < MAP_HEIGHT - 1; y++)
     {
         for (int x = 0; x < MAP_WIDTH; x++)
         {
-            char tempStr[2] = { this->m_UI[y][x + this->GetFocusX()], 0 };
-            _DrawText(x, y, tempStr);
+            char tempStr[2] = { this->m_BG[y][x + this->GetFocusX()], 0 };
+            _DrawTextColor(x, y, tempStr, E_CMDColor::Gray);
+        }
+    }
+}
+
+// 발판 그리기
+void MapManager::DrawFlatform()
+{
+    for (int y = 0; y < MAP_HEIGHT - 1; y++)
+    {
+        for (int x = 0; x < MAP_WIDTH; x++)
+        {
+            if(this->m_Flatform[y][x + this->GetFocusX()] != ' ')
+            {
+                char tempStr[2] = { this->m_Flatform[y][x + this->GetFocusX()], 0 };
+                _DrawText(x, y, tempStr);
+            }
         }
     }
 }
@@ -179,13 +198,15 @@ void MapManager::Init()
 {
     this->m_speed = 5;     // TODO: 이동속도 설정
     this->m_mapStatus = E_MapStatus::JAIL;
+    this->InitFrame();
     this->UpdateUI();
 }
 
 // 그리기
 void MapManager::Draw()
 {
-    this->DrawUI();
+    this->DrawBG();
+    this->DrawFlatform();
     this->DrawFrame();
 }
 
@@ -197,10 +218,7 @@ void MapManager::Update()
 }
 
 // 할당 해제
-void MapManager::Destroy()
-{
-
-}
+void MapManager::Destroy() {}
 
 // 현재 맵 이름 문자열로 반환
 string MapManager::GetMapStatusToString()

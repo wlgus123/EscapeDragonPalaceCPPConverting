@@ -49,10 +49,7 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="mtg.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Flatform_Sea1.txt">
-      <Filter>Data</Filter>
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -66,9 +63,6 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="SmallFish.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="tempInclude.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="MonsterManager.h">
@@ -131,6 +125,9 @@
       <Filter>Data</Filter>
     </Text>
     <Text Include="Flatform_Sea2.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="Flatform_Sea1.txt">
       <Filter>Data</Filter>
     </Text>
   </ItemGroup>

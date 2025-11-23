@@ -20,7 +20,8 @@ class MapManager : public IState
 private:
 	static MapManager* m_Instance;
 
-	vector<string> m_UI;		// 맵 UI
+	vector<string> m_BG;		// 맵 배경
+	vector<string> m_Flatform;	// 맵 발판
 	E_MapStatus m_mapStatus;	// 현재 맵 정보
 	int m_focusX;				// 플레이어를 기준으로 하는 x좌표 이동값
 	float m_speed;				// TODO: 이동 속도 (임시)
@@ -51,6 +52,7 @@ public:
 	vector<string> GetUI(string p_name);	// 맵 UI 불러오기
 	void UpdateX();							// x좌표 이동값 업데이트
 	void DrawFrame();						// 맵 틀 그리기
-	void DrawUI();							// 맵 UI 그리기
+	void DrawBG();							// 맵 UI 그리기
+	void DrawFlatform();					// 맵 발판 그리기
 };
 
