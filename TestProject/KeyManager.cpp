@@ -3,7 +3,7 @@
 
 KeyManager* KeyManager::m_Instance = nullptr;
 
-// 생성자
+// 생성자/소멸자
 KeyManager::KeyManager()
 {
 	this->m_Key = -1;
@@ -14,10 +14,7 @@ KeyManager::KeyManager()
 	this->m_KeySpace = false;
 }
 
-// 소멸자
-KeyManager::~KeyManager()
-{
-}
+KeyManager::~KeyManager() { }
 
 // 인스턴스 가져오기
 KeyManager* KeyManager::GetInstance()
@@ -32,6 +29,7 @@ KeyManager* KeyManager::GetInstance()
 
 void KeyManager::InputKey()
 {
+	this->m_Key = _GetKey();
 }
 
 // 다중 키 입력 감지
@@ -44,7 +42,6 @@ void KeyManager::CheckMultiKey()
 	this->m_KeyS = (GetAsyncKeyState('S') & 0x8000); // S키(아래 이동) 입력 감지
 
 	this->m_KeySpace = (GetAsyncKeyState(' ') & 0x8000); // 스페이스바(공격) 입력 감지
-
 }
 
 int KeyManager::GetKey()
