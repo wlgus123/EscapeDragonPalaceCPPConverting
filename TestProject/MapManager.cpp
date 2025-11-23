@@ -1,9 +1,5 @@
-﻿#include "Input.h"
-#include "MapManager.h"
+﻿#include "MapManager.h"
 #include "KeyManager.h"
-
-// TODO: cout 삭제
-#include "tempInclude.h"
 
 MapManager* MapManager::m_Instance = nullptr;
 KeyManager* g_KeyManager = KeyManager::GetInstance();   // 키 매니저 불러오기
@@ -11,7 +7,7 @@ KeyManager* g_KeyManager = KeyManager::GetInstance();   // 키 매니저 불러�
 // 생성자/소멸자
 MapManager::MapManager()
 {
-    Init();
+    this->Init();
 
     cout << "MapManager 생성자" << endl;
 }
@@ -65,27 +61,39 @@ void MapManager::ResetMapStatus()
 {
     // 처음 맵인 감옥 맵으로 이동
     this->m_mapStatus = E_MapStatus::JAIL;
+    this->UpdateUI();     // UI 업데이트
 }
 
-// UI 저장하고 불러오기
-vector<string> MapManager::GetUI()
+// 맵 틀 저장하기
+void MapManager::InitFrame()
+{
+}
+
+// 맵 UI 업데이트
+void MapManager::UpdateUI()
 {
     string fileName = "Map_" + this->GetMapStatusToString() + ".txt";   // 현재 맵에 따라 맵 파일 불러오기
+    this->m_UI = this->GetUI(fileName);
+}
+
+// 맵 UI 불러오기
+vector<string> MapManager::GetUI(string p_fileName)
+{
+    vector<string> fileStr;
     string tempMapLine = "";
-    ifstream fin(fileName);     // 파일 열기
+    ifstream fin(p_fileName);     // 파일 열기
 
     if (fin.is_open())
     {
         while (true)
         {
             getline(fin, tempMapLine);      // 줄 단위로 읽기
-            
+
             if (fin.fail())
             {
                 break;
             }
-            this->m_UI.push_back(tempMapLine);
-            cout << tempMapLine << endl;
+            fileStr.push_back(tempMapLine);
         }
     }
     else
@@ -94,7 +102,30 @@ vector<string> MapManager::GetUI()
     }
 
     fin.close();
-    return vector<string>();
+
+    return fileStr;
+}
+
+// 맵 틀 그리기
+void MapManager::DrawFrame()
+{
+    vector<string> frame = this->GetUI("MapFrame.txt");
+
+    for (int y = 0; y < MAP_HEIGHT; y++)
+    {
+        for (int x = 0; x < MAP_WIDTH; x++)
+        {
+            // 공백이 아닐 경우만 그리기
+            if (frame[y][x] != ' ')
+            {
+
+            }
+        }
+    }
+}
+
+void MapManager::DrawUI()
+{
 }
 
 // 일반 함수
@@ -102,6 +133,7 @@ vector<string> MapManager::GetUI()
 void MapManager::Init()
 {
     this->m_mapStatus = E_MapStatus::JAIL;
+    this->UpdateUI();
 }
 
 // 그리기
@@ -118,6 +150,7 @@ void MapManager::Update()
     // N: 다음 스테이지
     // P: 이전 스테이지
 
+    this->UpdateUI();   // 맵 UI 업데이트
 }
 
 // 할당 해제

@@ -48,7 +48,7 @@
     <ClCompile Include="KeyManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="mtg.c">
+    <ClCompile Include="mtg.cpp">
       <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,6 +113,9 @@
       <Filter>Data</Filter>
     </Text>
     <Text Include="Map_Sea2.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="MapFrame.txt">
       <Filter>Data</Filter>
     </Text>
   </ItemGroup>

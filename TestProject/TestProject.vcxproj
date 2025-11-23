@@ -135,7 +135,7 @@
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="MonsterManager.cpp" />
-    <ClCompile Include="mtg.c" />
+    <ClCompile Include="mtg.cpp" />
     <ClCompile Include="SmallFish.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +158,7 @@
   <ItemGroup>
     <Text Include="CommonMonsterUI.txt" />
     <Text Include="BossMonsterUI.txt" />
+    <Text Include="MapFrame.txt" />
     <Text Include="Map_DragonPalace.txt" />
     <Text Include="Map_Ground.txt" />
     <Text Include="Map_Jail.txt" />

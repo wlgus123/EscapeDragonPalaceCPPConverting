@@ -28,7 +28,7 @@ int main()
 		cout << "==========================================================" << endl;
 		mapManager->SetMapStatusNext();
 	}*/
-	mapManager->GetUI();
+	mapManager->DrawFrame();
 
 	
 	// Destroy
