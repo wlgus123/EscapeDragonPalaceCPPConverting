@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="BigFish.cpp" />
     <ClCompile Include="Crab.cpp" />
+    <ClCompile Include="Flatform_Sea1.txt" />
     <ClCompile Include="IState.cpp" />
     <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="MapManager.cpp" />
@@ -158,6 +159,10 @@
   <ItemGroup>
     <Text Include="CommonMonsterUI.txt" />
     <Text Include="BossMonsterUI.txt" />
+    <Text Include="Flatform_DragonPalace.txt" />
+    <Text Include="Flatform_Ground.txt" />
+    <Text Include="Flatform_Jail.txt" />
+    <Text Include="Flatform_Sea2.txt" />
     <Text Include="MapFrame.txt" />
     <Text Include="Map_DragonPalace.txt" />
     <Text Include="Map_Ground.txt" />

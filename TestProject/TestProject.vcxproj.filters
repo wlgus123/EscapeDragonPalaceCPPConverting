@@ -51,6 +51,9 @@
     <ClCompile Include="mtg.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Flatform_Sea1.txt">
+      <Filter>Data</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Crab.h">
@@ -116,6 +119,18 @@
       <Filter>Data</Filter>
     </Text>
     <Text Include="MapFrame.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="Flatform_Jail.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="Flatform_DragonPalace.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="Flatform_Ground.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="Flatform_Sea2.txt">
       <Filter>Data</Filter>
     </Text>
   </ItemGroup>
