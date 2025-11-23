@@ -1,19 +1,14 @@
 ﻿#include "MonsterManager.h"
 
-// TODO: cout 삭제
-#include "tempInclude.h"
-
 MonsterManager* MonsterManager::m_Instance = nullptr;
 
 // 생성자/소멸자
 MonsterManager::MonsterManager()
 {
-    cout << "MonsterManager 생성자" << endl;
 }
 
 MonsterManager::~MonsterManager()
 {
-    cout << "MonsterManager 소멸자" << endl;
 }
 
 // 싱글톤 사용

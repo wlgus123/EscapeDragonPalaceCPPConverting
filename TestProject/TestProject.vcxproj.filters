@@ -48,8 +48,8 @@
     <ClCompile Include="KeyManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="mtg.cpp">
-      <Filter>Core</Filter>
+    <ClCompile Include="mtg.c">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

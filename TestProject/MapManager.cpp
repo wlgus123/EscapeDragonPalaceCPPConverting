@@ -1,4 +1,5 @@
-﻿#include "MapManager.h"
+﻿#include "Input.h"
+#include "MapManager.h"
 #include "KeyManager.h"
 
 MapManager* MapManager::m_Instance = nullptr;
@@ -8,13 +9,10 @@ KeyManager* g_KeyManager = KeyManager::GetInstance();   // 키 매니저 불러�
 MapManager::MapManager()
 {
     this->Init();
-
-    cout << "MapManager 생성자" << endl;
 }
 
 MapManager::~MapManager()
 {
-    cout << "MapManager 소멸자" << endl;
 }
 
 // 싱글톤
@@ -51,6 +49,7 @@ bool MapManager::SetMapStatusNext()
     if((int)this->m_mapStatus < (int)E_MapStatus::GROUND)
     {
         this->m_mapStatus = (E_MapStatus)((int)this->m_mapStatus + 1);
+        this->m_focusX = 0;     // x좌표 이동값 0으로 초기화
         return true;
     }
     
@@ -106,6 +105,43 @@ vector<string> MapManager::GetUI(string p_fileName)
     return fileStr;
 }
 
+void MapManager::UpdateX()
+{
+    // TODO: 임시 코드
+    // A or <-, D or ->: 좌, 우 맵 이동
+    // N: 다음 스테이지
+    // R: 스테이지 리셋
+    
+    switch (g_KeyManager->GetKey())
+    {
+    case 'A': case 'a':
+        if (this->m_focusX > 0)
+            this->m_focusX -= this->m_speed;
+
+        // 맵 처음에 정확하게 닿도록 설정
+        if (this->m_focusX - this->m_speed <= 0)
+            this->m_focusX = 0;
+        break;
+
+    case 'D': case 'd':
+        if (this->m_focusX <= this->m_UI[0].size() - MAP_WIDTH)
+            this->m_focusX += this->m_speed;
+        
+        // 맵 끝에 정확하게 닿도록 설정
+        if (this->m_focusX + MAP_WIDTH + this->m_speed >= this->m_UI[0].size())
+            this->m_focusX = this->m_UI[0].size() - MAP_WIDTH;
+        break;
+
+    case 'N': case 'n':
+        this->SetMapStatusNext();
+        break;
+
+    case 'R': case 'r':
+        this->ResetMapStatus();
+        break;
+    }
+}
+
 // 맵 틀 그리기
 void MapManager::DrawFrame()
 {
@@ -118,7 +154,8 @@ void MapManager::DrawFrame()
             // 공백이 아닐 경우만 그리기
             if (frame[y][x] != ' ')
             {
-
+                char tempStr[2] = { frame[y][x], 0 };
+                _DrawText(x, y, tempStr);
             }
         }
     }
@@ -126,12 +163,21 @@ void MapManager::DrawFrame()
 
 void MapManager::DrawUI()
 {
+    for (int y = 0; y < MAP_HEIGHT - 1; y++)
+    {
+        for (int x = 0; x < MAP_WIDTH; x++)
+        {
+            char tempStr[2] = { this->m_UI[y][x + this->GetFocusX()], 0 };
+            _DrawText(x, y, tempStr);
+        }
+    }
 }
 
 // 일반 함수
 // 초기화
 void MapManager::Init()
 {
+    this->m_speed = 5;     // TODO: 이동속도 설정
     this->m_mapStatus = E_MapStatus::JAIL;
     this->UpdateUI();
 }
@@ -139,18 +185,15 @@ void MapManager::Init()
 // 그리기
 void MapManager::Draw()
 {
-    
+    this->DrawUI();
+    this->DrawFrame();
 }
 
 // 업데이트
 void MapManager::Update()
 {
-    // TODO: 임시 코드
-    // A or <-, D or ->: 좌, 우 맵 이동
-    // N: 다음 스테이지
-    // P: 이전 스테이지
-
-    this->UpdateUI();   // 맵 UI 업데이트
+    this->UpdateX();
+    this->UpdateUI();   // 변경 후 맵 업데이트
 }
 
 // 할당 해제
