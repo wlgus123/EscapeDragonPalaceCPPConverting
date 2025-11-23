@@ -119,21 +119,29 @@ void MapManager::UpdateX()
     switch (g_KeyManager->GetKey())
     {
     case 'A': case 'a':
-        if (this->m_focusX > 0)
-            this->m_focusX -= this->m_speed;
+        // 일반 맵일 경우에만 이동
+        if((int)this->m_mapStatus < (int)E_MapStatus::GROUND)
+        {
+            if (this->m_focusX > 0)
+                this->m_focusX -= this->m_speed;
 
-        // 맵 처음에 정확하게 닿도록 설정
-        if (this->m_focusX - this->m_speed <= 0)
-            this->m_focusX = 0;
+            // 맵 처음에 정확하게 닿도록 설정
+            if (this->m_focusX - this->m_speed <= 0)
+                this->m_focusX = 0;
+        }
         break;
 
     case 'D': case 'd':
-        if (this->m_focusX <= this->m_BG[0].size() - MAP_WIDTH)
-            this->m_focusX += this->m_speed;
-        
-        // 맵 끝에 정확하게 닿도록 설정
-        if (this->m_focusX + MAP_WIDTH + this->m_speed >= this->m_BG[0].size())
-            this->m_focusX = this->m_BG[0].size() - MAP_WIDTH;
+        // 일반 맵일 경우에만 이동
+        if ((int)this->m_mapStatus < (int)E_MapStatus::GROUND)
+        {
+            if (this->m_focusX <= this->m_BG[0].size() - MAP_WIDTH)
+                this->m_focusX += this->m_speed;
+
+            // 맵 끝에 정확하게 닿도록 설정
+            if (this->m_focusX + MAP_WIDTH + this->m_speed >= this->m_BG[0].size())
+                this->m_focusX = this->m_BG[0].size() - MAP_WIDTH;
+        }
         break;
 
     case 'N': case 'n':
@@ -199,7 +207,6 @@ void MapManager::Init()
     this->m_speed = 5;     // TODO: 이동속도 설정
     this->m_mapStatus = E_MapStatus::JAIL;
     this->InitFrame();
-    this->UpdateUI();
 }
 
 // 그리기

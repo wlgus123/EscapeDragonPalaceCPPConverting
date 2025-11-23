@@ -9,6 +9,8 @@
 #include <Windows.h>
 #include "mtg.h"
 
+using namespace std;
+
 #ifndef MAP_HEIGHT
 #define MAP_HEIGHT 25 
 #define MAP_WIDTH 80

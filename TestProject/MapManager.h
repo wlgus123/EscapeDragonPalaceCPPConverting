@@ -2,8 +2,6 @@
 #include "Input.h"
 #include "IState.h"
 
-using namespace std;
-
 // 맵 enum
 enum E_MapStatus
 {

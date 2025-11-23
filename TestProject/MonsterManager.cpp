@@ -5,6 +5,7 @@ MonsterManager* MonsterManager::m_Instance = nullptr;
 // 생성자/소멸자
 MonsterManager::MonsterManager()
 {
+    this->Init();
 }
 
 MonsterManager::~MonsterManager()
@@ -25,6 +26,7 @@ MonsterManager* MonsterManager::GetInstance()
 // 초기화
 void MonsterManager::Init()
 {
+    this->InitMonsterUI();
 }
 
 // 업데이트
@@ -41,4 +43,38 @@ void MonsterManager::Draw()
 // 할당 해제
 void MonsterManager::Destroy()
 {
+}
+
+// 몬스터 UI 저장하기 (파일 입출력)
+void MonsterManager::InitMonsterUI()
+{
+    ifstream fin("MonsterUI.txt");
+    vector<string> tempUI;
+    string tempLine = "";
+
+    if (fin.is_open())
+    {
+        while (true)
+        {
+            getline(fin, tempLine);
+
+            // 입력된 문자의 크기가 0일 때 (공백일 때)
+            if (tempLine.size() == 0)
+            {
+                // 임시 UI 배열을 몬스터 배열에 넣기
+                this->m_MonUI.push_back(tempUI);
+                tempUI.clear();
+            }
+            // 입력된 문자가 있을 때
+            else
+            {
+                // 임시 UI 배열에 넣기
+                tempUI.push_back(tempLine);
+            }
+
+            if (fin.fail()) break;
+        }
+    }
+
+    fin.close();
 }
