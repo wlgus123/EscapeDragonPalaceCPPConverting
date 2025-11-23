@@ -1,6 +1,18 @@
 #include "Crab.h"
 #include "tempInclude.h"
 
+// 积己磊/家戈磊
+// TODO: cout 昏力
+Crab::Crab()
+{
+	cout << "Crab 积己磊" << endl;
+}
+
+Crab::~Crab()
+{
+	cout << "Crab 家戈磊" << endl;
+}
+
 void Crab::Init()
 {
 }
@@ -25,14 +37,10 @@ void Crab::PlayerHitMonster()
 {
 }
 
-// 积己磊/家戈磊
-// TODO: cout 昏力
-Crab::Crab()
+void Crab::Move()
 {
-	cout << "Crab 积己磊" << endl;
 }
 
-Crab::~Crab()
+void Crab::Destroy()
 {
-	cout << "Crab 家戈磊" << endl;
 }

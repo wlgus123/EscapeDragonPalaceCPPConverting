@@ -4,6 +4,10 @@
 class Crab : public Monster
 {
 public:
+	// 생성자/소멸자
+	Crab();
+	virtual ~Crab();
+
 	// Monster을(를) 통해 상속됨
 	void Init() override;
 	void Reset() override;
@@ -11,9 +15,7 @@ public:
 	void Draw() override;
 	void MonsterHitPlayer() override;
 	void PlayerHitMonster() override;
-
-	// 생성자/소멸자
-	Crab();
-	virtual ~Crab();
+	void Move() override;
+	void Destroy() override;
 };
 

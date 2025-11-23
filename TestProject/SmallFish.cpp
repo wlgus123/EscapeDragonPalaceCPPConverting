@@ -1,4 +1,6 @@
 #include "SmallFish.h"
+
+// TODO: cout 昏力
 #include "tempInclude.h"
 
 void SmallFish::Init()
@@ -25,8 +27,15 @@ void SmallFish::PlayerHitMonster()
 {
 }
 
+void SmallFish::Move()
+{
+}
+
+void SmallFish::Destroy()
+{
+}
+
 // 积己磊/家戈磊
-// TODO: cout 昏力
 SmallFish::SmallFish()
 {
 	cout << "SmallFish 积己磊" << endl;

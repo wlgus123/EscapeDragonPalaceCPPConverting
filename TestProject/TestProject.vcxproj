@@ -135,6 +135,7 @@
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="MonsterManager.cpp" />
+    <ClCompile Include="mtg.c" />
     <ClCompile Include="SmallFish.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +147,7 @@
     <ClInclude Include="MapManager.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="MonsterManager.h" />
+    <ClInclude Include="mtg.h" />
     <ClInclude Include="SmallFish.h" />
     <ClInclude Include="tempInclude.h" />
   </ItemGroup>
@@ -156,11 +158,11 @@
   <ItemGroup>
     <Text Include="CommonMonsterUI.txt" />
     <Text Include="BossMonsterUI.txt" />
-    <Text Include="map_DragonPalace.txt" />
-    <Text Include="map_Ground.txt" />
-    <Text Include="map_Jail.txt" />
-    <Text Include="map_Sea1.txt" />
-    <Text Include="map_Sea2.txt" />
+    <Text Include="Map_DragonPalace.txt" />
+    <Text Include="Map_Ground.txt" />
+    <Text Include="Map_Jail.txt" />
+    <Text Include="Map_Sea1.txt" />
+    <Text Include="Map_Sea2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

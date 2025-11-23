@@ -1,9 +1,12 @@
-﻿#include "MapManager.h"
+﻿#include "Input.h"
+#include "MapManager.h"
+#include "KeyManager.h"
 
 // TODO: cout 삭제
 #include "tempInclude.h"
 
 MapManager* MapManager::m_Instance = nullptr;
+KeyManager* g_KeyManager = KeyManager::GetInstance();   // 키 매니저 불러오기
 
 // 생성자/소멸자
 MapManager::MapManager()
@@ -67,31 +70,29 @@ void MapManager::ResetMapStatus()
 // UI 저장하고 불러오기
 vector<string> MapManager::GetUI()
 {
-    string fileName = "map_" + this->GetMapStatusToString() + ".txt";   // 파일 이름 
-    string tempFileStr = "";
+    string fileName = "Map_" + this->GetMapStatusToString() + ".txt";   // 현재 맵에 따라 맵 파일 불러오기
+    string tempMapLine = "";
     ifstream fin(fileName);     // 파일 열기
 
     if (fin.is_open())
     {
-        char c;
         while (true)
         {
-            fin.get(c);
+            getline(fin, tempMapLine);      // 줄 단위로 읽기
             
             if (fin.fail())
             {
                 break;
             }
-            // 문자열이 다음 칸으로 내려갔을 경우
-            if (c == '\n')
-            {
-                this->m_UI.push_back(tempFileStr);
-                cout << tempFileStr << endl;
-                tempFileStr = "";
-            }
-            tempFileStr += c;
+            this->m_UI.push_back(tempMapLine);
+            cout << tempMapLine << endl;
         }
     }
+    else
+    {
+        cout << "파일을 열 수 없습니다." << endl;
+    }
+
     fin.close();
     return vector<string>();
 }
@@ -138,6 +139,8 @@ string MapManager::GetMapStatusToString()
         return "Sea1";
     case E_MapStatus::SEA2:
         return "Sea2";
+    case E_MapStatus::GROUND:
+        return "Ground";
     }
 
     return "";

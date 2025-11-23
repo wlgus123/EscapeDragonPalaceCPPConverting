@@ -16,6 +16,9 @@
     <Filter Include="Data">
       <UniqueIdentifier>{7ea719b8-ee50-442b-8e7b-733e71c135b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{b92f540f-06a8-47c9-8d32-c1396c77dfee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Crab.cpp">
@@ -44,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="KeyManager.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="mtg.c">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +83,9 @@
     <ClInclude Include="KeyManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="mtg.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="MonsterData.json">
@@ -91,19 +100,19 @@
     <Text Include="BossMonsterUI.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="map_DragonPalace.txt">
+    <Text Include="Map_DragonPalace.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="map_Ground.txt">
+    <Text Include="Map_Ground.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="map_Jail.txt">
+    <Text Include="Map_Jail.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="map_Sea1.txt">
+    <Text Include="Map_Sea1.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="map_Sea2.txt">
+    <Text Include="Map_Sea2.txt">
       <Filter>Data</Filter>
     </Text>
   </ItemGroup>

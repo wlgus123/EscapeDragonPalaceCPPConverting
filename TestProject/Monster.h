@@ -22,6 +22,7 @@ class IMonster
 {
 public:
 	virtual void Reset() = 0;				// 몬스터 리셋
+	virtual void Move() = 0;
 	virtual void MonsterHitPlayer() = 0;	// 몬스터 피격 처리 함수
 	virtual void PlayerHitMonster() = 0;	// 플레이어 -> 몬스터 피격 처리 함수
 };
@@ -43,6 +44,7 @@ public:
 	virtual ~Monster();
 
 	virtual void Reset() override = 0;				// 리셋
+	virtual void Move() override = 0;				// 몬스터 이동
 	virtual void MonsterHitPlayer() override = 0;	// 몬스터 피격 처리 함수
 	virtual void PlayerHitMonster() override = 0;	// 플레이어 -> 몬스터 피격 처리 함수
 
@@ -50,6 +52,7 @@ public:
 	virtual void Update() override = 0;				// 업데이트
 	virtual void Draw() override = 0;				// 그리기
 	virtual void Destroy() override = 0;			// 할당 해제
+
 };
 
 	 

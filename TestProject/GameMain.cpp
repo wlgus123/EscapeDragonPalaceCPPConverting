@@ -8,6 +8,8 @@
 
 using namespace std;
 
+void Draw() {}
+
 int main()
 {
 	vector<Monster*> mon;

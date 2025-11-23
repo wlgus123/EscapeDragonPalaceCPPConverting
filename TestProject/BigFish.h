@@ -4,6 +4,10 @@
 class BigFish : public Monster
 {
 public:
+	// 생성자/소멸자
+	BigFish();
+	virtual ~BigFish();
+
 	// Monster을(를) 통해 상속됨
 	void Init() override;
 	void Reset() override;
@@ -11,9 +15,7 @@ public:
 	void Draw() override;
 	void MonsterHitPlayer() override;
 	void PlayerHitMonster() override;
-
-	// 생성자/소멸자
-	BigFish();
-	virtual ~BigFish();
+	void Move() override;
+	void Destroy() override;
 };
 

@@ -1,6 +1,5 @@
 #pragma once
-#include <string>
-#include <vector>
+#include "Input.h"
 #include "IState.h"
 
 using namespace std;
