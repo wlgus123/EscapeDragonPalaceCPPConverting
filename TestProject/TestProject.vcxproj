@@ -152,10 +152,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="MonsterData.json" />
+    <None Include="MonsterUI.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="MonsterUI.txt" />
     <Text Include="Flatform_DragonPalace.txt" />
     <Text Include="Flatform_Ground.txt" />
     <Text Include="Flatform_Jail.txt" />

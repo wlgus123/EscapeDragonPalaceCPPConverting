@@ -27,13 +27,13 @@ void Update()
 
 int main()
 {
-	while (true)
-	{
-		g_KeyMng->InputKey();	// 키 입력 받기
+	//while (true)
+	//{
+	//	g_KeyMng->InputKey();	// 키 입력 받기
 
-		Update();		// 업데이트
-		_Invalidate();	// 그리기
-	}
+	//	Update();		// 업데이트
+	//	_Invalidate();	// 그리기
+	//}
 
 	return 0;
 }

@@ -89,11 +89,11 @@
       <Filter>Data</Filter>
     </None>
     <None Include="packages.config" />
+    <None Include="MonsterUI.json">
+      <Filter>Data</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="MonsterUI.txt">
-      <Filter>Data</Filter>
-    </Text>
     <Text Include="Map_DragonPalace.txt">
       <Filter>Data</Filter>
     </Text>

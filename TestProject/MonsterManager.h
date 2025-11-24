@@ -1,36 +1,16 @@
 ﻿#pragma once
-#include "Input.h"
 #include "IState.h"
-
 #include <map>
 #include <string>
 
-
-
 using namespace std;
-
-// 몬스터 종류 및 상태
-enum E_MonsterStatus
-{
-	// 큰 물고기
-	BigFish_L = 0,	// 왼쪽
-	BigFish_R,		// 오른쪽
-	// 꽃게
-	Crab_None,		// 기본
-	Crab_Attack,	// 공격
-	// 작은 물고기
-	SmallFish,
-	// 자라(보스)
-	Turtle_L,		// 왼쪽
-	Turtle_R,		// 오른쪽
-};
 
 class MonsterManager : public IState
 {
 private:
 	static MonsterManager* m_Instance;
 	
-	vector<vector<string>> m_MonUI;		// 몬스터 UI
+	map<string, vector<string>> m_MonUI;		// 몬스터 UI
 
 public:
 	// 생성자/소멸자
@@ -49,14 +29,14 @@ public:
 	void InitMonsterUI();		// 몬스터 UI 저장하기
 
 
-protected:
-	map<string, Monster *> m_AllMonster;
-
-	map<string, vector< Monster *> m_AllCreateMonster;
-	//vector< Monster *> m_AllCreateMonster;
-
-public:
-	Monster *CreateClass(string p_monstclassname);
+//protected:
+//	map<string, Monster *> m_AllMonster;
+//
+//	map<string, vector< Monster *> m_AllCreateMonster;
+//	//vector< Monster *> m_AllCreateMonster;
+//
+//public:
+//	Monster *CreateClass(string p_monstclassname);
 
 };
 
