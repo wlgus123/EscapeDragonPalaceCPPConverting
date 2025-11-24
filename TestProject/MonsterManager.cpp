@@ -1,11 +1,20 @@
 ﻿#include "MonsterManager.h"
+#include "Crab.h"
+#include "BigFish.h"
+
 
 MonsterManager* MonsterManager::m_Instance = nullptr;
 
 // 생성자/소멸자
 MonsterManager::MonsterManager()
 {
+    m_AllMonster.insert( make_pair( "Grab", new Crab ));
+    m_AllMonster.insert(make_pair("BigFish", new BigFish));
+
+
     this->Init();
+
+
 }
 
 MonsterManager::~MonsterManager()
@@ -37,7 +46,6 @@ void MonsterManager::Update()
 // 그리기
 void MonsterManager::Draw()
 {
-
 }
 
 // 할당 해제
@@ -56,6 +64,9 @@ void MonsterManager::InitMonsterUI()
     {
         while (true)
         {
+
+            CreateClass();
+
             getline(fin, tempLine);
 
             // 입력된 문자의 크기가 0일 때 (공백일 때)
@@ -77,4 +88,17 @@ void MonsterManager::InitMonsterUI()
     }
 
     fin.close();
+}
+
+Monster* MonsterManager::CreateClass(string p_monstclassname)
+{
+    Monster *outmonster = nullptr;
+    if (p_monstclassname == "Crab")
+    {
+        outmonster = new Crab();
+    }
+
+    m_AllCreateMonster.push_back(outmonster);
+
+    return outmonster;
 }

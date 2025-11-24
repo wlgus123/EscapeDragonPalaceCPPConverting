@@ -1,14 +1,14 @@
-#pragma once
+ï»¿#pragma once
 #include "Monster.h"
 
 class Crab : public Monster
 {
 public:
-	// »ı¼ºÀÚ/¼Ò¸êÀÚ
+	// ìƒì„±ì/ì†Œë©¸ì
 	Crab();
 	virtual ~Crab();
 
-	// MonsterÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// Monsterì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	void Init() override;
 	void Reset() override;
 	void Update() override;

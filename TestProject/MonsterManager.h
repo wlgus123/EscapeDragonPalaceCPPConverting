@@ -1,21 +1,28 @@
-#pragma once
+ï»¿#pragma once
 #include "Input.h"
 #include "IState.h"
 
-// ¸ó½ºÅÍ Á¾·ù ¹× »óÅÂ
+#include <map>
+#include <string>
+
+
+
+using namespace std;
+
+// ëª¬ìŠ¤í„° ì¢…ë¥˜ ë° ìƒíƒœ
 enum E_MonsterStatus
 {
-	// Å« ¹°°í±â
-	BigFish_L = 0,	// ¿ŞÂÊ
-	BigFish_R,		// ¿À¸¥ÂÊ
-	// ²É°Ô
-	Crab_None,		// ±âº»
-	Crab_Attack,	// °ø°İ
-	// ÀÛÀº ¹°°í±â
+	// í° ë¬¼ê³ ê¸°
+	BigFish_L = 0,	// ì™¼ìª½
+	BigFish_R,		// ì˜¤ë¥¸ìª½
+	// ê½ƒê²Œ
+	Crab_None,		// ê¸°ë³¸
+	Crab_Attack,	// ê³µê²©
+	// ì‘ì€ ë¬¼ê³ ê¸°
 	SmallFish,
-	// ÀÚ¶ó(º¸½º)
-	Turtle_L,		// ¿ŞÂÊ
-	Turtle_R,		// ¿À¸¥ÂÊ
+	// ìë¼(ë³´ìŠ¤)
+	Turtle_L,		// ì™¼ìª½
+	Turtle_R,		// ì˜¤ë¥¸ìª½
 };
 
 class MonsterManager : public IState
@@ -23,23 +30,33 @@ class MonsterManager : public IState
 private:
 	static MonsterManager* m_Instance;
 	
-	vector<vector<string>> m_MonUI;		// ¸ó½ºÅÍ UI
+	vector<vector<string>> m_MonUI;		// ëª¬ìŠ¤í„° UI
 
 public:
-	// »ı¼ºÀÚ/¼Ò¸êÀÚ
+	// ìƒì„±ì/ì†Œë©¸ì
 	MonsterManager();
 	virtual ~MonsterManager();
 
-	// ½Ì±ÛÅæ »ç¿ë (ÀÎ½ºÅÏ½º ºÒ·¯¿À±â)
+	// ì‹±ê¸€í†¤ ì‚¬ìš© (ì¸ìŠ¤í„´ìŠ¤ ë¶ˆëŸ¬ì˜¤ê¸°)
 	static MonsterManager* GetInstance();
 
-	// ±âº» ¸Ş¼Òµå
-	virtual void Init() override;		// ÃÊ±âÈ­
-	virtual void Draw() override;		// ±×¸®±â
-	virtual void Update() override;		// ¾÷µ¥ÀÌÆ®
-	virtual void Destroy() override;	// ÇÒ´ç ÇØÁ¦
+	// ê¸°ë³¸ ë©”ì†Œë“œ
+	virtual void Init() override;		// ì´ˆê¸°í™”
+	virtual void Draw() override;		// ê·¸ë¦¬ê¸°
+	virtual void Update() override;		// ì—…ë°ì´íŠ¸
+	virtual void Destroy() override;	// í• ë‹¹ í•´ì œ
+
+	void InitMonsterUI();		// ëª¬ìŠ¤í„° UI ì €ì¥í•˜ê¸°
 
 
-	void InitMonsterUI();		// ¸ó½ºÅÍ UI ÀúÀåÇÏ±â
+protected:
+	map<string, Monster *> m_AllMonster;
+
+	map<string, vector< Monster *> m_AllCreateMonster;
+	//vector< Monster *> m_AllCreateMonster;
+
+public:
+	Monster *CreateClass(string p_monstclassname);
+
 };
 

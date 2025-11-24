@@ -1,11 +1,13 @@
+ï»¿#include "Input.h"
 #include "Monster.h"
+#include "MonsterManager.h"
 
-// »ı¼ºÀÚ
+// ìƒì„±ì
 Monster::Monster()
 {
 }
 
-// ¼Ò¸êÀÚ
+// ì†Œë©¸ì
 Monster::~Monster()
 {
 }

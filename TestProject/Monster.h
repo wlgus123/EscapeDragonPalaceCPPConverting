@@ -1,7 +1,7 @@
-#pragma once
+ï»¿#pragma once
 #include "IState.h"
 
-// À§Ä¡ Å¬·¡½º
+// ìœ„ì¹˜ í´ëž˜ìŠ¤
 class Pos
 {
 private:
@@ -17,41 +17,41 @@ public:
 	int getY();
 };
 
-// ¸ó½ºÅÍ ÀÎÅÍÆäÀÌ½º Å¬·¡½º
+// ëª¬ìŠ¤í„° ì¸í„°íŽ˜ì´ìŠ¤ í´ëž˜ìŠ¤
 class IMonster
 {
 public:
-	virtual void Reset() = 0;				// ¸ó½ºÅÍ ¸®¼Â
+	virtual void Reset() = 0;				// ëª¬ìŠ¤í„° ë¦¬ì…‹
 	virtual void Move() = 0;
-	virtual void MonsterHitPlayer() = 0;	// ¸ó½ºÅÍ ÇÇ°Ý Ã³¸® ÇÔ¼ö
-	virtual void PlayerHitMonster() = 0;	// ÇÃ·¹ÀÌ¾î -> ¸ó½ºÅÍ ÇÇ°Ý Ã³¸® ÇÔ¼ö
+	virtual void MonsterHitPlayer() = 0;	// ëª¬ìŠ¤í„° í”¼ê²© ì²˜ë¦¬ í•¨ìˆ˜
+	virtual void PlayerHitMonster() = 0;	// í”Œë ˆì´ì–´ -> ëª¬ìŠ¤í„° í”¼ê²© ì²˜ë¦¬ í•¨ìˆ˜
 };
 
-// ¸ó½ºÅÍ Å¬·¡½º
+// ëª¬ìŠ¤í„° í´ëž˜ìŠ¤
 class Monster : public IMonster, public IState
 {
 protected:
-	Pos pos;					// ¸ó½ºÅÍ À§Ä¡
-	bool alive;					// »ýÁ¸ ¿©ºÎ
-	int hp;						// ¸ó½ºÅÍ Ã¼·Â
-	float speed;				// ÀÌµ¿ ¼Óµµ
-	bool isDamaged;				// ÇÇ°Ý »óÅÂ
-	unsigned long lastHitTime;	// ¸ó½ºÅÍ ¸¶Áö¸· ÇÇ°Ý ½Ã°£
+	Pos pos;					// ëª¬ìŠ¤í„° ìœ„ì¹˜
+	bool alive;					// ìƒì¡´ ì—¬ë¶€
+	int hp;						// ëª¬ìŠ¤í„° ì²´ë ¥
+	float speed;				// ì´ë™ ì†ë„
+	bool isDamaged;				// í”¼ê²© ìƒíƒœ
+	unsigned long lastHitTime;	// ëª¬ìŠ¤í„° ë§ˆì§€ë§‰ í”¼ê²© ì‹œê°„
 
 public:
-	// »ý¼ºÀÚ
+	// ìƒì„±ìž
 	Monster();
 	virtual ~Monster();
 
-	virtual void Reset() override = 0;				// ¸®¼Â
-	virtual void Move() override = 0;				// ¸ó½ºÅÍ ÀÌµ¿
-	virtual void MonsterHitPlayer() override = 0;	// ¸ó½ºÅÍ ÇÇ°Ý Ã³¸® ÇÔ¼ö
-	virtual void PlayerHitMonster() override = 0;	// ÇÃ·¹ÀÌ¾î -> ¸ó½ºÅÍ ÇÇ°Ý Ã³¸® ÇÔ¼ö
+	virtual void Reset() override = 0;				
+	virtual void Move() override = 0;				
+	virtual void MonsterHitPlayer() override = 0;	
+	virtual void PlayerHitMonster() override = 0;	
 
-	virtual void Init() override = 0;				// ÃÊ±âÈ­
-	virtual void Update() override = 0;				// ¾÷µ¥ÀÌÆ®
-	virtual void Draw() override = 0;				// ±×¸®±â
-	virtual void Destroy() override = 0;			// ÇÒ´ç ÇØÁ¦
+	virtual void Init() override = 0;				
+	virtual void Update() override = 0;				
+	virtual void Draw() override = 0;				
+	virtual void Destroy() override = 0;			
 
 };
 
