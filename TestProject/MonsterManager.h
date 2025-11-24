@@ -10,7 +10,7 @@ class MonsterManager : public IState
 private:
 	static MonsterManager* m_Instance;
 	
-	map<string, vector<string>> m_MonUI;		// 몬스터 UI
+	map<string, vector<vector<string>>> m_MonUI;		// 몬스터 UI 맵
 
 public:
 	// 생성자/소멸자
