@@ -14,6 +14,7 @@ MapManager::MapManager()
 
 MapManager::~MapManager()
 {
+    delete this->m_Instance;
 }
 
 // 싱글톤
@@ -214,7 +215,6 @@ void MapManager::Draw()
 {
     this->DrawBG();
     this->DrawFlatform();
-    this->DrawFrame();
 }
 
 // 업데이트

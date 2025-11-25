@@ -48,6 +48,9 @@ void MonsterManager::Update()
 // 그리기
 void MonsterManager::Draw()
 {
+	MapManager* mapMng = MapManager::GetInstance();
+	string mapStr = mapMng->GetMapStatusToString();		// 맵 데이터 불러오기
+
 }
 
 // 할당 해제
@@ -58,43 +61,46 @@ void MonsterManager::Destroy()
 // 몬스터 UI 저장하기 (파일 입출력)
 void MonsterManager::InitMonsterUI()
 {
-	MapManager* mapMng = MapManager::GetInstance();
-	ifstream fin1("MonsterUI.json");
-	ifstream fin2("MonsterData.json");
+	ifstream fin("MonsterUI.json");
 	Json::Value UI;
 	Json::Value data;
-	fin1 >> UI;
-	fin2 >> data;
+	fin >> UI;
 
 	vector<string> tempUI;
-	string tempLine = "";
-	string curMap = mapMng->GetMapStatusToString();     // 현재 맵 문자열
 
-	if (fin1.is_open())
+	if (fin.is_open())
 	{
-		// 현재 맵의 모든 몬스터 출력
-		for (string id : UI.getMemberNames())
-			for (int i = 0; i < id.size(); i++)
+		// 현재 맵의 모든 몬스터 불러오기
+		for (auto mem : UI)
+		{
+			for (int i = 0; i < mem.size(); i++)
 			{
-				cout << "ID: " << id << endl;
-
-				cout << UI[id][0]["sprite"][0] << endl;
-				/*for(int j = 0; j < UI[i].size(); j++)
+				for (auto str : mem[i]["sprite"])
 				{
-					if (UI[id][j]["sprite"])
-					{
-						cout << "ID: " << id << endl;
-
-						cout << UI[id][j]["sprite"] << endl;
-					}
-				}*/
+					tempUI.push_back(str.asString());
+				}
+				this->m_MonUI.insert({ mem[i]["id"].asString(), tempUI });
+				tempUI.clear();
 			}
-
+		}
 	}
 
-	fin1.close();
-	fin2.close();
-	delete mapMng;
+	fin.close();
+}
+
+// 몬스터 UI 그리기
+void MonsterManager::DrawMonsterUI(int p_x, int p_y, string p_key)
+{
+	vector<string> tempUI = this->m_MonUI[p_key];
+	// 몬스터 출력
+	for (int y = 0; y < tempUI.size(); y++)
+	{
+		for (int x = 0; x < tempUI[y].size(); x++)
+		{
+			char tempChar[2] = { tempUI[y][x], 0};
+			_DrawText(p_x + x, p_y + y, tempChar);
+		}
+	}
 }
 
 //Monster* MonsterManager::CreateClass(string p_monstclassname)

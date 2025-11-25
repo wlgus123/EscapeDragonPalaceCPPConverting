@@ -10,7 +10,7 @@ class MonsterManager : public IState
 private:
 	static MonsterManager* m_Instance;
 	
-	map<string, vector<vector<string>>> m_MonUI;		// 몬스터 UI 맵
+	map<string, vector<string>> m_MonUI;		// 몬스터 UI 맵
 
 public:
 	// 생성자/소멸자
@@ -26,7 +26,8 @@ public:
 	virtual void Update() override;		// 업데이트
 	virtual void Destroy() override;	// 할당 해제
 
-	void InitMonsterUI();		// 몬스터 UI 저장하기
+	void InitMonsterUI();							// 몬스터 UI 저장하기
+	void DrawMonsterUI(int x, int y, string p_key);	// 몬스터 UI 그리기
 
 
 //protected:

@@ -17,6 +17,8 @@ KeyManager* g_KeyMng = KeyManager::GetInstance();
 void Draw() 
 {
 	g_MapMng->Draw();
+	g_MonMng->DrawMonsterUI(10, 10, "BigFish_Left");	// TODO: 임시 출력
+	g_MapMng->DrawFrame();
 }
 
 // 업데이트
@@ -27,13 +29,13 @@ void Update()
 
 int main()
 {
-	//while (true)
-	//{
-	//	g_KeyMng->InputKey();	// 키 입력 받기
+	while (true)
+	{
+		g_KeyMng->InputKey();	// 키 입력 받기
 
-	//	Update();		// 업데이트
-	//	_Invalidate();	// 그리기
-	//}
+		Update();		// 업데이트
+		_Invalidate();	// 그리기
+	}
 
 	return 0;
 }
