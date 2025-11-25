@@ -14,7 +14,7 @@ MapManager* g_MapMng = MapManager::GetInstance();
 KeyManager* g_KeyMng = KeyManager::GetInstance();
 
 // 그리기
-void Draw() 
+void Draw()
 {
 	g_MapMng->Draw();
 	g_MonMng->DrawMonsterUI(10, 10, "BigFish_Left");	// TODO: 임시 출력

@@ -7,10 +7,12 @@ using namespace std;
 
 class MonsterManager : public IState
 {
-private:
+protected:
 	static MonsterManager* m_Instance;
 	
 	map<string, vector<string>> m_MonUI;		// 몬스터 UI 맵
+	vector<Monster*> m_MonList;					// 스테이지별 몬스터 벡터
+
 
 public:
 	// 생성자/소멸자
@@ -28,6 +30,8 @@ public:
 
 	void InitMonsterUI();							// 몬스터 UI 저장하기
 	void DrawMonsterUI(int x, int y, string p_key);	// 몬스터 UI 그리기
+
+	Monster* CreateClass(string p_monClsName);
 
 
 //protected:

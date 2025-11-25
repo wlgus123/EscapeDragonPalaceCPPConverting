@@ -3,6 +3,7 @@
 #include "MapManager.h"
 #include "Crab.h"
 #include "BigFish.h"
+#include "SmallFish.h"
 #include <json/json.h>
 
 MonsterManager* MonsterManager::m_Instance = nullptr;
@@ -10,17 +11,18 @@ MonsterManager* MonsterManager::m_Instance = nullptr;
 // 생성자/소멸자
 MonsterManager::MonsterManager()
 {
-	/*m_AllMonster.insert( make_pair( "Grab", new Crab ));
-	m_AllMonster.insert(make_pair("BigFish", new BigFish));*/
-
-
 	this->Init();
-
-
 }
 
 MonsterManager::~MonsterManager()
 {
+	/*for(int i = 0; i < this->m_MonList.size(); i++)
+		if(this->m_MonList[i])
+		{
+			delete this->m_MonList[i];
+		}*/
+
+	delete this->m_Instance;
 }
 
 // 싱글톤 사용
@@ -49,7 +51,7 @@ void MonsterManager::Update()
 void MonsterManager::Draw()
 {
 	MapManager* mapMng = MapManager::GetInstance();
-	string mapStr = mapMng->GetMapStatusToString();		// 맵 데이터 불러오기
+	string mapStr = mapMng->GetMapStatusToString();		// 맵 데이터 문자열로 불러오기
 
 }
 
@@ -103,15 +105,23 @@ void MonsterManager::DrawMonsterUI(int p_x, int p_y, string p_key)
 	}
 }
 
-//Monster* MonsterManager::CreateClass(string p_monstclassname)
-//{
-//    Monster *outmonster = nullptr;
-//    if (p_monstclassname == "Crab")
-//    {
-//        outmonster = new Crab();
-//    }
-//
-//    m_AllCreateMonster.push_back(outmonster);
-//
-//    return outmonster;
-//}
+Monster* MonsterManager::CreateClass(string p_monClsName)
+{
+    Monster *outmonster = nullptr;
+    if (p_monClsName == "Crab")
+    {
+        outmonster = new Crab();
+    }
+	else if (p_monClsName == "BigFish")
+	{
+		outmonster = new BigFish();
+	}
+	else if (p_monClsName == "BigFish")
+	{
+		outmonster = new SmallFish();
+	}
+
+    this->m_MonList.push_back(outmonster);
+
+    return outmonster;
+}
